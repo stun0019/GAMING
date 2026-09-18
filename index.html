@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>烽城戰場 · PvPvE 原型</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./reference-layout.css" />
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+</head>
+<body>
+  <main id="app">
+    <div id="stage" aria-label="戰國 PvPvE 戰場"></div>
+    <div id="labels" aria-hidden="true"></div>
+    <div class="edge-fade" aria-hidden="true"></div>
+
+    <header class="game-header">
+      <div class="title-block"><span class="seal">烽</span><div><small>WARRING STATES · PvPvE</small><h1>烽城戰場</h1></div></div>
+      <div class="round-block"><div class="round-label">本局剩餘</div><strong id="time">02:00</strong></div>
+    </header>
+
+    <section class="city-status" aria-label="城池耐久">
+      <div><span>雁門城</span><b id="city-value">100 / 100</b></div>
+      <div class="meter"><span id="city-fill"></span></div>
+    </section>
+
+    <aside class="minimap" aria-label="戰場小地圖"><div>雁門 · 集結廣場</div><svg viewBox="0 0 140 104" aria-hidden="true"><rect width="140" height="104" fill="#d4cba5"/><path d="M70 0V104M0 53H140M0 93L140 18" stroke="#f5e7bd" stroke-width="13"/><circle cx="70" cy="53" r="30" fill="#eee0b7" stroke="#b6a784"/><circle cx="70" cy="53" r="11" fill="#7daca1" stroke="#fff0c7" stroke-width="3"/><path d="M8 12H132" stroke="#96846a" stroke-width="8"/><circle id="map-player" r="4" fill="#3b8e83" stroke="#fff"/><circle id="map-ai1" r="3" fill="#ae564b"/><circle id="map-ai2" r="3" fill="#786aa8"/></svg><small>1280 × 720</small></aside>
+    <section class="scoreboard" aria-label="玩家積分">
+      <div class="scoreboard-title">戰功排行 <span>AI 暫代玩家</span></div>
+      <div class="score-row you"><span class="score-mark"></span><span>昭烈 <small>你</small></span><strong id="score-player">0</strong></div>
+      <div class="score-row ai1"><span class="score-mark"></span><span>赤羽 <small>AI</small></span><strong id="score-ai1">0</strong></div>
+      <div class="score-row ai2"><span class="score-mark"></span><span>玄策 <small>AI</small></span><strong id="score-ai2">0</strong></div>
+    </section>
+
+    <div class="scene-tag city-tag">城門 · 守護區</div>
+    <div class="scene-tag field-tag">城外戰場</div>
+    <div id="feed" class="feed">擊退敵軍、救援百姓，也可以挑戰其他武將。</div>
+
+    <footer class="game-footer">
+      <div class="controls"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移動 <span>·</span> <kbd>空白</kbd> 或 <kbd>J</kbd> 揮擊 <span>·</span> 靠近百姓自動救援</div>
+      <div class="player-status"><span>昭烈</span><div class="health"><span id="player-health"></span></div><b id="player-health-text">5 / 5</b></div>
+      <button id="restart" type="button">重新開始 ↻</button>
+    </footer>
+    <nav class="hotbar" aria-label="操作快捷列"><button id="attack-button" title="揮擊：J 或空白鍵"><kbd>J</kbd><span>⚔</span><small>揮擊</small></button><div class="hotkey"><kbd>WASD</kbd><span>✥</span><small>移動</small></div><div class="hotkey"><kbd>靠近</kbd><span>✚</span><small>救援</small></div><div class="empty-slot">4</div><div class="empty-slot">5</div><div class="empty-slot">6</div><div class="empty-slot">7</div><div class="empty-slot">8</div><div class="empty-slot">9</div></nav>
+
+    <div id="end-screen" class="end-screen hidden" role="dialog" aria-modal="true">
+      <div class="end-card"><small>戰局結束</small><h2 id="end-title">戰功結算</h2><p id="end-message"></p><button id="play-again" type="button">再戰一局</button></div>
+    </div>
+  </main>
+  <script type="module" src="./scene.js"></script>
+</body>
+</html>
