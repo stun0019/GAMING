@@ -1,0 +1,1 @@
+import{a as e,c as t,d as n,f as r,i,l as a,n as o,o as s,r as c,s as l,t as u,u as d}from"./avatar-CdSbWJ2b.js";export{n as BIP_MAP,r as BipedAdapter,u as RocketboxAvatar,o as avatarManifest,a as avatarMaterial,c as avatarTextureMode,i as createAvatar,e as loadAvatarAsset,s as pickLod,l as preloadAvatars,t as setAvatarRenderer,d as setSss};
